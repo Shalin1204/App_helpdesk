@@ -1,10 +1,9 @@
-#Student Helpdesk
-Overview
+#𝐒𝐭𝐮𝐝𝐞𝐧𝐭 𝐇𝐞𝐥𝐩𝐝𝐞𝐬𝐤
 
 The Student Helpdesk is a Java-based application designed to simplify the process of submitting and managing student complaints related to classroom, campus, or facility issues.
 Students can easily register their complaints, which are automatically routed to the respective in-charge for timely resolution. The system uses Java for backend logic and integrates with a relational database to efficiently store, track, and manage complaint records.
 
-Key Features
+𝐊𝐞𝐲 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
 
 -Complaint submission through a simple and intuitive interface.
 
@@ -16,32 +15,17 @@ Key Features
 
 -Database integration for storing complaints, user details, and resolution history.
 
-Technologies Used
-Layer	Technology
-Frontend	HTML, CSS
-Backend	Java (Servlets / JDBC)
-Database	MySQL
-Server	Apache Tomcat
-IDE / Tools	VS Code, Git, GitHub
 
-System Workflow
+𝐒𝐲𝐬𝐭𝐞𝐦 𝐖𝐨𝐫𝐤𝐟𝐥𝐨𝐰
 
-A student logs in and submits a complaint through the web form.
+1)A student logs in and submits a complaint through the web form.
 
-The system stores the complaint details in the database.
+2)The system stores the complaint details in the database.
 
-The complaint is automatically routed to the designated in-charge.
+3)The complaint is automatically routed to the designated in-charge.
 
-The in-charge reviews and updates the status of the complaint.
+4)The in-charge reviews and updates the status of the complaint.
 
-The student can track the progress and resolution status in real time.
+5)The student can track the progress and resolution status in real time.
 
-Future Enhancements
 
-Integration with Cloud-based database
-
-Email or SMS notifications for complaint updates
-
-Admin dashboard for analytics and reports
-
-Mobile-friendly responsive interface
