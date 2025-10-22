@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRM University - Login</title>
+    <style>
+        /* Keep your original styles unchanged */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; height: 100vh; display: flex; overflow: hidden; }
+        .left-panel { flex: 1; background: linear-gradient(135deg, #0d5cb6 0%, #1976d2 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: white; }
+        .logo-container { margin-bottom: 30px; }
+        .logo { width: 150px; height: 150px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); border: 8px solid #f4b942; position: relative; }
+        .logo-inner { width: 100%; height: 100%; border-radius: 50%; border: 3px solid #0d5cb6; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px; }
+        .logo-text { text-align: center; font-size: 9px; color: #0d5cb6; font-weight: bold; line-height: 1.2; margin-bottom: 5px; }
+        .tree-icon { width: 50px; height: 50px; color: #4a8f4a; margin: 5px 0; }
+        .welcome-text { font-size: 32px; font-weight: 300; text-align: center; letter-spacing: 0.5px; }
+        .right-panel { flex: 1; background: #f5f5f5; display: flex; align-items: center; justify-content: center; padding: 40px; }
+        .login-container { width: 100%; max-width: 400px; }
+        .login-title { font-size: 32px; font-weight: 600; color: #1a3a52; margin-bottom: 40px; }
+        .input-group { margin-bottom: 20px; }
+        .input-field { width: 100%; padding: 16px 20px; font-size: 16px; border: none; border-radius: 8px; background: #e8e8e8; color: #333; outline: none; transition: background 0.3s; }
+        .input-field::placeholder { color: #888; }
+        .input-field:focus { background: #ddd; }
+        .password-container { position: relative; }
+        .password-toggle { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 20px; }
+        .login-button { width: 100%; padding: 16px; font-size: 16px; font-weight: 600; color: white; background: #0d5cb6; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s; margin-top: 10px; }
+        .login-button:hover { background: #094a94; }
+        .forgot-password { text-align: center; margin-top: 20px; }
+        .forgot-password a { color: #0d5cb6; text-decoration: none; font-size: 14px; }
+        .forgot-password a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .left-panel { padding: 30px 20px; }
+            .logo { width: 100px; height: 100px; }
+            .welcome-text { font-size: 24px; }
+            .login-title { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="left-panel">
+        <div class="logo-container">
+            <div class="logo">
+                <div class="logo-inner">
+                    <div class="logo-text">SRM<br>UNIVERSITY</div>
+                    <svg class="tree-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C9.24 2 7 4.24 7 7c0 1.75.91 3.29 2.29 4.17-.05.33-.29.83-.29.83l-1 2s-.5 1-1 1c-.18 0-.35-.05-.5-.12-.45-.25-.79-.67-.91-1.18-.18-.71.07-1.5.67-2.08l.84-.84c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-.84.84C3.68 11.38 3 13.13 3 15c0 2.76 2.24 5 5 5 .37 0 .72-.04 1.06-.12C9.64 21.1 10.75 22 12 22s2.36-.9 2.94-2.12c.34.08.69.12 1.06.12 2.76 0 5-2.24 5-5 0-1.87-.68-3.62-1.85-4.79l-.84-.84c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l.84.84c.6.58.85 1.37.67 2.08-.12.51-.46.93-.91 1.18-.15.07-.32.12-.5.12-.5 0-1-1-1-1l-1-2s-.24-.5-.29-.83C16.09 10.29 17 8.75 17 7c0-2.76-2.24-5-5-5z"/>
+                    </svg>
+                    <div class="logo-text" style="font-size: 7px; margin-top: 3px;">DEEMED UNIVERSITY</div>
+                </div>
+            </div>
+        </div>
+        <div class="welcome-text">Welcome to SRM<br>University</div>
+    </div>
+
+    <div class="right-panel">
+        <div class="login-container">
+            <h1 class="login-title">Log In to Your<br>Account</h1>
+            <form action="LoginServlet" method="post">
+                <div class="input-group">
+                    <input type="text" name="email" class="input-field" placeholder="Enter Email" required>
+                </div>
+                <div class="input-group password-container">
+                    <input type="password" name="password" class="input-field" id="password" placeholder="Password" required>
+                    <span class="password-toggle" onclick="togglePassword()">🔒</span>
+                </div>
+                <button type="submit" class="login-button">LOG IN</button>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggle = document.querySelector('.password-toggle');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggle.textContent = '🔓';
+            } else {
+                passwordField.type = 'password';
+                toggle.textContent = '🔒';
+            }
+        }
+    </script>
+</body>
+</html>
